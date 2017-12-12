@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 import program from 'commander';
 import colors from 'colors';
+import calculate from './calculate'
 
 program
-  .arguments('<word>')
-  .action(word => {
-    winston.log('word: %s'.green, word);
+  .arguments('<cart> <basePrices>')
+  .action((cart, basePrices) => {
   })
   .parse(process.argv);

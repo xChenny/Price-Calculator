@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
 const babel = require('gulp-babel');
+const plumber = require('gulp-plumber');
 const path = require('path');
 
 const paths = {
@@ -12,6 +13,7 @@ const paths = {
 
 gulp.task('babel', function () { 
     return gulp.src(paths.src)
+        .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(babel({
             presets: ['babel-preset-env']

@@ -9,9 +9,11 @@ var _colors = require('colors');
 
 var _colors2 = _interopRequireDefault(_colors);
 
+var _calculate = require('./calculate');
+
+var _calculate2 = _interopRequireDefault(_calculate);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_commander2.default.arguments('<word>').action(function (word) {
-  winston.log('word: %s'.green, word);
-}).parse(process.argv);
+_commander2.default.arguments('<cart> <basePrices>').action(function (cart, basePrices) {}).parse(process.argv);
 //# sourceMappingURL=index.js.map
