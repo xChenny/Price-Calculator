@@ -10,8 +10,10 @@
   },
   "author": "Andrew Z Chen",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "colors": "^1.1.2",
-    "commander": "^2.12.2"
+    "commander": "^2.12.2",
+    "lodash": "^4.17.4"
   },
   "bin": {
     "price": "./build/index.js"

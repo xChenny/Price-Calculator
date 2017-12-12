@@ -1,5 +1,4 @@
-[
-  {
+[{
     "product-type": "hoodie",
     "options": {
       "colour": ["white", "dark"],
@@ -69,8 +68,7 @@
   },
   {
     "product-type": "leggings",
-    "options": {
-    },
+    "options": {},
     "base-price": 5000
   }
 ]
