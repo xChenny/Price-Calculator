@@ -1,25 +1,24 @@
 import { equals } from './compare'
 
-const calcItemPrice = (bPrice, markup, quantity) => {
-  console.log('Calculating a price...')
-  console.log(`bPrice: ${bPrice}\n`.green);
-  console.log(`markup: ${markup}\n`.red);
-  console.log(`quantity: ${quantity}\n`.blue);
-  return bPrice + Math.round(bPrice * markup * .01) * quantity;
+export const calcItemPrice = (bPrice, markup, quantity) => {
+  return (bPrice + Math.round(bPrice * markup * .01)) * quantity;
 }
 
-const parseBasePrice = (basePrices, currItem) => {
-  const keys = Object.keys(currItem.options);
-  let baseItems = basePrices.filter(item => currItem['product-type'] === item['product-type'])
-  keys.map(key => {
-    console.log('filtering via\n')
-    console.log(key + '\n'.cyan)
-    console.log(baseItems)
-    baseItems = baseItems.filter(item => equals(item.options[key], currItem.options[key]))
-    console.log(baseItems)
+// With respect to BasePrices.json, the Big O efficiency is:
+export const parseBasePrice = (basePrices, currItem) => {
+  const options = Object.keys(currItem.options);
+  let baseItems = basePrices.filter(item => currItem['product-type'] === item['product-type']) // O(n)
+  options.map(key => { // O(1)
+    baseItems = baseItems.filter(item => equals(item.options[key], currItem.options[key])) // O(n)
   })
   return (baseItems.length === 1) ? 
-    calcItemPrice(baseItems[0]['base-price'], currItem['artist-markup'], currItem.quantity) : 0
+    calcItemPrice(baseItems[0]['base-price'], currItem['artist-markup'], currItem.quantity) : 0 // O(1)
+}
+
+export const joinAndFilter = (json1, json2) => {
+  const combinedJson = Object.assign({}, json1, json2)
+  const cart = combinedJson.filter(item => typeof item.quantity != 'undefined')
+  return cart.reduce((subtotal, merchItem) => subtotal + calcItemPrice())
 }
 
 export const cartTotal = (cart, basePrices) => {

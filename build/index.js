@@ -1,27 +1,2 @@
 #!/usr/bin/env node
-'use strict';
-
-require('babel-polyfill');
-
-var _commander = require('commander');
-
-var _commander2 = _interopRequireDefault(_commander);
-
-var _colors = require('colors');
-
-var _colors2 = _interopRequireDefault(_colors);
-
-var _fs = require('fs');
-
-var _fs2 = _interopRequireDefault(_fs);
-
-var _calculate = require('./calculate');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_commander2.default.arguments('<cartFile> <basePricesFile>').usage('<cartFile> <basePricesFile>').action(function (cartFile, basePricesFile) {
-  var cart = JSON.parse(_fs2.default.readFileSync(cartFile, 'utf8'));
-  var basePrices = JSON.parse(_fs2.default.readFileSync(basePricesFile, 'utf8'));
-  console.log((0, _calculate.cartTotal)(cart, basePrices));
-}).parse(process.argv);
-//# sourceMappingURL=index.js.map
+"use strict";function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}require("babel-polyfill");var _commander=require("commander"),_commander2=_interopRequireDefault(_commander),_colors=require("colors"),_colors2=_interopRequireDefault(_colors),_fs=require("fs"),_fs2=_interopRequireDefault(_fs),_calculate=require("./calculate");_commander2.default.arguments("<cartFile> <basePricesFile>").usage("<cartFile> <basePricesFile>").action(function(e,r){var a=JSON.parse(_fs2.default.readFileSync(e,"utf8")),l=JSON.parse(_fs2.default.readFileSync(r,"utf8"));console.log((0,_calculate.cartTotal)(a,l))}).parse(process.argv);
