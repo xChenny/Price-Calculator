@@ -6,7 +6,7 @@ const plumber = require('gulp-plumber');
 const path = require('path');
 
 const paths = {
-    src: ['src/*.js'],
+    src: ['src/**/*.js'],
     build: 'build',
     // Must be absolute or relative to source map
     sourceRoot: path.join(__dirname, 'src'),

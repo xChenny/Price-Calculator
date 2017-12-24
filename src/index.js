@@ -12,6 +12,6 @@ program
   .action((cartFile, basePricesFile) => {
     const cart = JSON.parse(fs.readFileSync(cartFile, 'utf8'));
     const basePrices = JSON.parse(fs.readFileSync(basePricesFile, 'utf8'));
-    console.log(cartTotal(cart, basePrices))
+    console.log(cartTotal(cart, basePrices) + '\n')
   })
   .parse(process.argv);

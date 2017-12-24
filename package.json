@@ -13,7 +13,11 @@
     "babel-polyfill": "^6.26.0",
     "colors": "^1.1.2",
     "commander": "^2.12.2",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "object-assign": "^4.1.1",
+    "promise": "^8.0.1",
+    "raf": "^3.4.0",
+    "whatwg-fetch": "^2.0.3"
   },
   "bin": {
     "price": "./build/index.js"
@@ -22,7 +26,6 @@
     "babel-core": "^6.26.0",
     "babel-jest": "^21.2.0",
     "babel-preset-env": "^1.6.1",
-    "babelify": "^8.0.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "gulp": "^3.9.1",
@@ -30,10 +33,25 @@
     "gulp-plumber": "^1.1.0",
     "gulp-uglify": "^3.0.0",
     "jest": "^21.2.1",
-    "pump": "^2.0.0",
-    "source-map-support": "^0.5.0"
+    "pump": "^2.0.0"
   },
   "jest": {
-    "transform": {}
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,mjs}"
+    ],
+    "setupFiles": [
+      "<rootDir>/polyfills.js"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
+      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
+    ],
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
+    ]
   }
 }
