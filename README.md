@@ -54,6 +54,10 @@ Now, we're all set up!
 
     `npm install -g`
 
+    **Note:** If this command did not work, then try running it with the `sudo` command in the front
+
+    `sudo npm install -g`
+
 6. Test the script out
 
     `price <CART> <BASE_PRICES>`
