@@ -6,12 +6,12 @@
   "repository": "git@github.com:xChenny/Price-Calculator.git",
   "scripts": {
     "gulp": "gulp",
-    "test": "jest"
+    "test": "jest",
+    "build": "gulp babel"
   },
   "author": "Andrew Z Chen",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
-    "colors": "^1.1.2",
     "commander": "^2.12.2",
     "lodash": "^4.17.4",
     "object-assign": "^4.1.1",
@@ -52,6 +52,9 @@
     },
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/src/index.js"
     ]
   }
 }
