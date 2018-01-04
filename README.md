@@ -36,6 +36,12 @@ If a version number appears, then we're in business! Run this command to install
 
 `nvm install 8.9.3`
 
+and quickly check node and npm:
+
+`node -v`
+
+`npm -v`
+
 Now, we're all set up!
 
 ### Installing and Running the Project
