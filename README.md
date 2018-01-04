@@ -13,12 +13,18 @@ This is a NodeJS implementation and I tested it using Facebook's Jest testing fr
 
 ## Installation
 
-    Prerequisites
 
-    - NodeJS
-    - NPM
+#### For the RedBubble Submission Installation:
 
-Installing Node:
+Make sure that you have the prerequisite programs installed and skip to step 2 of normal installation instructions below!
+
+
+#### Prerequisites
+
+- NodeJS
+- NPM
+
+*Installing Node:*
 
 The [nvm](https://github.com/creationix/nvm) (Node Version Manager) script is a utility that you can easily install and switch between versions of NodeJS. Click on the link for a quick guide on how to install it.
 
@@ -74,11 +80,30 @@ Simply run the following command to start the test runner:
 
   `npm run test`
 
-  To add a coverage report add a `--coverage` flag to the end of the last command.
+  To add a coverage report, run this command:
 
   `npm run testCoverage`
 
-#### Notes on Test Coverage
+
+## Program Design and Design Choices
+
+
+My project is roughly outlined like so:
+
+
+![/assets/tree.png](/assets/tree.png)
+
+
+The "main" file where the program runs is `/src/index.js`
+
+
+The other files that are in the folder, (such as `calculate.js` or `compare.js`) will be modules for any extensions that I plan to implement in the future and this is made easy with Javascript's module exporting.
+
+
+While the program is still small, it will suffice to make them files, but if the functionality gets more complicated, then I will change the modules from individual files to directories with comprised of smaller files to promote modularity.
+
+
+### Notes on Test Coverage
 
 I chose not to test the `index.js` entry file because the file consisted of just the `commander` and NodeJS framework calls and my functions that I test already.
 
