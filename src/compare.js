@@ -1,10 +1,10 @@
-export const equals = (large, small) => {
+export const equals = (largerOptionList, smallerOptionList) => {
   // covers "print location" option
-  if (typeof large === 'undefined') return true;
-  if (Array.isArray(large)) {
-    return large.includes(small);
+  if (typeof largerOptionList === 'undefined') return true;
+  if (Array.isArray(largerOptionList)) {
+    return largerOptionList.includes(smallerOptionList);
   }
   else {
-    return large === small;
+    return largerOptionList === smallerOptionList;
   }
 }
