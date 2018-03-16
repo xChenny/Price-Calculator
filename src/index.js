@@ -5,16 +5,17 @@ import program from 'commander';
 import fs from 'fs';
 import { cartTotal } from './calculate'
 
-let cart, basePrices
+let cart, basePrices, discountPrices
 
 program
-  .arguments('<cartFile> <basePricesFile>')
-  .usage('<cartFile> <basePricesFile>')
-  .action((cartFile, basePricesFile) => {
+  .arguments('<cartFile> <basePricesFile> <discountFile>')
+  .usage('<cartFile> <basePricesFile> <discountFile>')
+  .action((cartFile, basePricesFile, discountFile) => {
     try {
       cart = JSON.parse(fs.readFileSync(cartFile, 'utf8'));
       basePrices = JSON.parse(fs.readFileSync(basePricesFile, 'utf8'));
-      console.log(`${cartTotal(cart, basePrices)}\n`)
+      discountPrices = JSON.parse(fs.readFileSync(discountFile, 'utf8'));
+      console.log(JSON.stringify(cartTotal(cart, basePrices, discountPrices), null, 2))
     }
     catch(err) {
       console.error(err);

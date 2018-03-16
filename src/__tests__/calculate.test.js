@@ -24,7 +24,9 @@ describe('Testing calculate.js module', () => {
         expect(calculate.cartTotal(file[1], basePriceFile[0])).toBe(price)
       })(file)
     })
+
   })
+
 
   // No testing conformation of the item to schemas required.
   // therefore, they are omitted
